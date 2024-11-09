@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jenkins Pipeline Stages</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Jenkins Eight-Stage Pipeline</h1>
+
+    <!-- Video Element, hidden by default -->
+    <video id="stageVideo" controls style="display: none; width: 80%; margin: 20px auto; max-width: 800px;">
+        <source id="videoSource" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Pipeline Structure with Full-Screen Video Play -->
+    <div class="pipeline">
+        <a href="#" class="stage" onclick="playVideo(1)">Stage 1: Setup</a>
+        <span class="connector"></span>
+        <a href="#" class="stage" onclick="playVideo(2)">Stage 2: Camp</a>
+        <span class="connector"></span>
+        <a href="#" class="stage" onclick="playVideo(3)">Stage 3: Starting Analysis</a>
+        <span class="connector"></span>
+        <a href="#" class="stage" onclick="playVideo(4)">Stage 4: Unit Test</a>
+        <span class="connector"></span>
+        <a href="#" class="stage" onclick="playVideo(5)">Stage 5: Code Coverage</a>
+        <span class="connector"></span>
+        <a href="#" class="stage" onclick="playVideo(6)">Stage 6: WAR</a>
+        <span class="connector"></span>
+        <a href="#" class="stage" onclick="playVideo(7)">Stage 7: Artifactory</a>
+        <span class="connector"></span>
+        <a href="#" class="stage" onclick="playVideo(8)">Stage 8: Smoke Test</a>
+    </div>
+
+    <script>
+        // Array of video URLs (adjust the paths as needed)
+        const videos = [
+            "videos/video1.mp4",
+            "videos/video2.mp4",
+            "videos/video3.mp4",
+            "videos/video4.mp4",
+            "videos/video5.mp4",
+            "videos/video6.mp4",
+            "videos/video7.mp4",
+            "videos/video8.mp4"
+        ];
+
+        function playVideo(stage) {
+            const video = document.getElementById("stageVideo");
+            const videoSource = document.getElementById("videoSource");
+
+            videoSource.src = videos[stage - 1];  // Set the video source based on the stage clicked
+            video.load();  // Re-load the video with the new source
+            video.style.display = "block";  // Show the video element
+            video.play();  // Play the video
+
+            // Optional: Full-screen mode
+            if (video.requestFullscreen) {
+                video.requestFullscreen();
+            } else if (video.mozRequestFullScreen) { /* Firefox */
+                video.mozRequestFullScreen();
+            } else if (video.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+                video.webkitRequestFullscreen();
+            } else if (video.msRequestFullscreen) { /* IE/Edge */
+                video.msRequestFullscreen();
+            }
+        }
+    </script>
+</body>
+</html>
