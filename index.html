@@ -5,34 +5,113 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jenkins Pipeline Stages</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Style for the footer button */
+        .coffee-btn {
+            display: inline-block;
+            padding: 8px 16px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #fff;
+            background-color: #FF813F;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .coffee-btn:hover {
+            background-color: #E3702F;
+        }
+
+        /* Footer Styling */
+        .footer {
+            background-color: #343a40; /* Dark background for footer */
+            color: #fff; /* Light text color for contrast */
+            padding: 10px 20px; /* Smaller padding */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            width: 100%;
+            margin-top: auto; /* Ensure footer stays at the bottom */
+        }
+
+        .footer-text {
+            font-size: 14px;
+            color: #f8f9fa;
+            margin: 0;
+            flex: 1;
+            text-align: left;
+        }
+
+        .footer .coffee-btn {
+            margin-top: 0;
+            text-align: right;
+        }
+
+        @media (max-width: 600px) {
+            .footer {
+                flex-direction: column;
+                text-align: center;
+                padding: 10px 15px; /* Smaller padding on mobile */
+            }
+
+            .footer-text {
+                margin-bottom: 10px;
+            }
+
+            .footer .coffee-btn {
+                margin-top: 10px;
+            }
+        }
+
+        /* Ensure the body content takes full height */
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+
+        .content {
+            flex: 1; /* Allow content to expand and push footer down */
+        }
+
+        /* Add spacing below the pipeline content */
+        .pipeline {
+            margin-bottom: 40px; /* Space between Smoke Test and footer */
+        }
+    </style>
 </head>
 <body>
-    <h1>Jenkins 8 Stage Pipeline</h1>
+    <h1>Jenkins Eight-Stage Pipeline</h1>
 
-    <!-- Video Element, hidden by default -->
-    <video id="stageVideo" controls style="display: none; width: 80%; margin: 20px auto; max-width: 800px;">
-        <source id="videoSource" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-
-    <!-- Pipeline Structure with Full-Screen Video Play -->
-    <div class="pipeline">
-        <a href="video1.mp4" class="stage" onclick="playVideo(1)">Setup</a>
-        <span class="connector"></span>
-        <a href="video2.mp4" class="stage" onclick="playVideo(2)">Compile</a>
-        <span class="connector"></span>
-        <a href="video3.mp4" class="stage" onclick="playVideo(3)">StaticAnalysis</a>
-        <span class="connector"></span>
-        <a href="video4.mp4" class="stage" onclick="playVideo(4)">UnitTest</a>
-        <span class="connector"></span>
-        <a href="video5.mp4" class="stage" onclick="playVideo(5)">CodeCoverage</a>
-        <span class="connector"></span>
-        <a href="video6.mp4" class="stage" onclick="playVideo(6)">War</a>
-        <span class="connector"></span>
-        <a href="video7.mp4" class="stage" onclick="playVideo(7)">ToArtifactory</a>
-        <span class="connector"></span>
-        <a href="video8.mp4" class="stage" onclick="playVideo(8)">SmokeTest</a>
+    <div class="content">
+        <!-- Pipeline Structure with Full-Screen Video Play -->
+        <div class="pipeline">
+            <a href="video1.mp4" class="stage" onclick="playVideo(1)">Stage 1: Setup</a>
+            <span class="connector"></span>
+            <a href="video2.mp4" class="stage" onclick="playVideo(2)">Stage 2: Compile</a>
+            <span class="connector"></span>
+            <a href="video3.mp4" class="stage" onclick="playVideo(3)">Stage 3: StaticAnalysis</a>
+            <span class="connector"></span>
+            <a href="video4.mp4" class="stage" onclick="playVideo(4)">Stage 4: UnitTest</a>
+            <span class="connector"></span>
+            <a href="video5.mp4" class="stage" onclick="playVideo(5)">Stage 5: CodeCoverage</a>
+            <span class="connector"></span>
+            <a href="video6.mp4" class="stage" onclick="playVideo(6)">Stage 6: War</a>
+            <span class="connector"></span>
+            <a href="video7.mp4" class="stage" onclick="playVideo(7)">Stage 7: ToArtifactory</a>
+            <span class="connector"></span>
+            <a href="video8.mp4" class="stage" onclick="playVideo(8)">Stage 8: SmokeTest</a>
+        </div>
     </div>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <p class="footer-text">This website is developed by Ezhilarasu.</p>
+        <a href="https://buymeacoffee.com/ezhilarasu" target="_blank" class="coffee-btn">Buy Me a Coffee ☕</a>
+    </footer>
 
     <script>
         // Array of video URLs (adjust the paths as needed)
@@ -51,10 +130,10 @@
             const video = document.getElementById("stageVideo");
             const videoSource = document.getElementById("videoSource");
 
-            videoSource.src = videos[stage - 1];  // Set the video source based on the stage clicked
-            video.load();  // Re-load the video with the new source
-            video.style.display = "block";  // Show the video element
-            video.play();  // Play the video
+            videoSource.src = videos[stage - 1]; // Set the video source based on the stage clicked
+            video.load(); // Re-load the video with the new source
+            video.style.display = "block"; // Show the video element
+            video.play(); // Play the video
 
             // Optional: Full-screen mode
             if (video.requestFullscreen) {
