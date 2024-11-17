@@ -18,15 +18,15 @@ The website also features a responsive design and an option to support the devel
   7. Upload to Artifactory
   8. Smoke Test
 
-- Responsive Design**: Adapts seamlessly across devices and screen sizes.
+- Responsive Design: Adapts seamlessly across devices and screen sizes.
 - Buy Me a Coffee Button: Support the developer directly from the website.
-- Footer Information**: Highlights the developer's name.
+- Footer Information: Highlights the developer's name.
 
 # Website Structure
 
-- Video Player**: Dynamically plays the video corresponding to each stage.
-- Pipeline Links**: Clickable links for each Jenkins stage.
-- Footer**: Includes developer credit and a donation button.
+- Video Player: Dynamically plays the video corresponding to each stage.
+- Pipeline Links: Clickable links for each Jenkins stage.
+- Footer: Includes developer credit and a donation button.
 
 # How to Use
 
